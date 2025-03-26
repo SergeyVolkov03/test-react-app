@@ -5,23 +5,26 @@ import "../list-users/ListUsers.css";
 
 export default function ListUsers() {
   const [users, setUsers] = useState([]);
-  console.log(users);
-
-  async function fetchUsers() {
-    const users = await getUsers();
-    setUsers(users);
-  }
+  const [isFething, setIsFething] = useState(false);
 
   useEffect(() => {
+    async function fetchUsers() {
+      setIsFething(true);
+      const users = await getUsers();
+      setUsers(users);
+      setIsFething(false);
+    }
     fetchUsers();
   }, []);
 
   return (
     <ul className="user-list">
-      {users.length ? (
-        users.map((user) => <User key={user.id} name={user.name} />)
-      ) : (
+      {isFething ? (
         <p>loading</p>
+      ) : (
+        users.map((user) => (
+          <User key={user.id} name={user.name} id={user.id} />
+        ))
       )}
     </ul>
   );
