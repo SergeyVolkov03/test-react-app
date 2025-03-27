@@ -19,6 +19,7 @@ export default function ListUsers() {
 
   return (
     <ul className="user-list">
+      <p>Users</p>
       {isFething ? (
         <p>loading</p>
       ) : (

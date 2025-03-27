@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 import "../post/Post.css";
 
-export default function Post({ title, body }) {
+export default function Post({ post }) {
   return (
     <li className="post">
-      <Link className="link">
-        <p className="title"> {title}</p>
-        <p className="description">{body}</p>
+      <Link className="link" to={`${post.id}`}>
+        <p className="title"> {post.title}</p>
+        <p className="description">{post.body}</p>
       </Link>
     </li>
-    /* <Link to={`users/${id}/posts`}>{name}</Link> */
   );
 }

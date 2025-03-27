@@ -1,8 +1,7 @@
 .user {
   list-style: none;
-  max-width: 200px;
-  border: 1px solid darkred;
-  border-radius: 5px;
+  max-width: 300px;
+  border-bottom: 1px solid darkred;
 }
 
 .user:hover {

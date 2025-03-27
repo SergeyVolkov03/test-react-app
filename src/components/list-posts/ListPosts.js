@@ -5,29 +5,28 @@ import Post from "../post/Post";
 import "../list-posts/ListPost.css";
 
 export default function ListPosts() {
-  const { id } = useParams();
+  const { userId } = useParams();
   const [posts, setPosts] = useState([]);
   const [isFething, setIsFething] = useState(false);
-  console.log(posts);
+  console.log(posts, userId);
 
   useEffect(() => {
     async function fetchPosts() {
       setIsFething(true);
-      const posts = await getPostsForUserId(id);
+      const posts = await getPostsForUserId(userId);
       setPosts(posts);
       setIsFething(false);
     }
     fetchPosts();
-  }, [id]);
+  }, [userId]);
 
   return (
     <ul className="post-list">
+      <p>Posts</p>
       {isFething ? (
         <p>loading</p>
       ) : (
-        posts.map((post) => (
-          <Post key={post.id} title={post.title} body={post.body} />
-        ))
+        posts.map((post) => <Post key={post.id} post={post} />)
       )}
     </ul>
   );
