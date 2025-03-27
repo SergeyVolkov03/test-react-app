@@ -1,0 +1,27 @@
+.post {
+  list-style: none;
+  max-width: 600px;
+  border-bottom: 1px solid darkred;
+}
+
+.post:hover {
+  cursor: pointer;
+  background-color: gainsboro;
+  transition: all 0.5s;
+}
+
+.link {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem;
+  color: black;
+}
+
+.title {
+  padding-bottom: 1rem;
+}
+
+.title,
+.description {
+  margin: 0;
+}
